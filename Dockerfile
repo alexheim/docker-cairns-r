@@ -14,7 +14,7 @@ COPY Rserv.conf /etc/Rserv.conf
 
 # The R installation exposes its local library
 # and the Rserv listener port to the outer world
-VOLUME /usr/local/lib/R
+# you can use a VOLUME /usr/local/lib/R to make installed packages persistent
 EXPOSE 6311
 
 ENTRYPOINT R CMD Rserve --no-save; sleep infinity
