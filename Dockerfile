@@ -1,8 +1,10 @@
 FROM r-base
 RUN apt-get update -y
-RUN apt-get install -y procps
-RUN apt-get install -y libssl-dev
-RUN apt-get install -y libcurl4-openssl-dev
+RUN apt-get install -y procps libssl-dev libcurl4-openssl-dev
+
+# Maybe one day ... 
+#  RUN apt-get install -y texlive-full
+
 RUN Rscript -e "install.packages('Rserve')"
 RUN Rscript -e "install.packages('RSclient')"
 RUN Rscript -e "install.packages('pander')"
@@ -10,6 +12,8 @@ RUN Rscript -e "install.packages('ggplot2')"
 RUN Rscript -e "install.packages('psych')"
 RUN Rscript -e "install.packages('Ckmeans.1d.dp')"
 RUN Rscript -e "install.packages('ChainLadder')"
+RUN Rscript -e "install.packages('knitr', dependencies = TRUE)"
+
 COPY Rserv.conf /etc/Rserv.conf
 
 # The R installation exposes its local library
