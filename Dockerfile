@@ -5,7 +5,7 @@ RUN apt-get install -y libssl-dev
 RUN apt-get install -y libcurl4-openssl-dev
 # https://stackoverflow.com/questions/50410289/running-r-script-from-java-rconnection-eval-exception/50622263#50622263
 # RUN Rscript -e "install.packages('Rserve')"
-RUN Rscript -e "install.packages('Rserve', 'Rserve_1.8-6.tgz', 'http://www.rforge.net/')"
+RUN Rscript -e "install.packages('https://www.rforge.net/Rserve/snapshot/Rserve_1.8-6.tar.gz')"
 RUN Rscript -e "install.packages('RSclient')"
 RUN Rscript -e "install.packages('pander')"
 RUN Rscript -e "install.packages(c('ggplot2', 'plotly', 'plyr'))"
